@@ -11,11 +11,9 @@ public class MergeSort implements Sortable {
             int[] arr1 = new int[elementsInA1];
             int[] arr2 = new int[elementsInA2];
             // copy the first part of 'array' into 'arr1', causing arr1 to become full
-            for(int i = 0; i < elementsInA1; i++)
-                arr1[i] = array[i];
+            System.arraycopy(array, 0, arr1, 0, elementsInA1);
             // copy the remaining elements of 'array' into 'arr2', causing arr2 to become full
-            for(int i = elementsInA1; i < elementsInA1 + elementsInA2; i++)
-                arr2[i - elementsInA1] = array[i];
+            System.arraycopy(array, elementsInA1, arr2, elementsInA1 - elementsInA1, elementsInA1 + elementsInA2 - elementsInA1);
             arr1 = sort(arr1);
             arr2 = sort(arr2);
 
