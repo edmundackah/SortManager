@@ -32,11 +32,13 @@ public class SortManager {
         }
     }
 
-    public void sortArray() {
+    public int[] sortArray() {
         int[] arr = new Random().ints(view.getArraySize(), 0, 100).toArray();
-        view.displayArray("Unsorted Array:", arr, false);
-        sort.sort(arr);
-        view.displayArray("Sorted Array:", arr, true);
 
+        view.displayArray("Unsorted Array:", arr, false);
+        int[] sortedArr = sort.sort(arr);
+        view.displayArray("Sorted Array:", sortedArr, true);
+
+        return sortedArr;
     }
 }
