@@ -15,13 +15,8 @@ public class DisplayManager {
         while (!options.contains(choice)) {
             System.out.println("Pick a sorting algorithm: \n1. Bubble Sort \n2. Merge Sort \n3. Quick Sort \n4. Exit ");
 
-            //error handing if user enters a value that is not of type integer
-            try {
-                choice = scan.nextInt();
-            } catch (InputMismatchException e) {
-                System.err.println("Please pick from the given range\n");
-                choice = 0;
-            }
+            //error handing if user enters a value that is not of type integer or is negative
+            choice = validateChoice();
         }
 
         switch (choice) {
@@ -47,13 +42,24 @@ public class DisplayManager {
         while (choice < 1 || choice > 100) {
             System.out.println("How many numbers in the array (1-100)? ");
 
-            //reset choice to zero if user enters an undesired input
-            try {
-                choice = scan.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("\nPlease pick from the given range\n");
-                choice = 0;
-            }
+            //error handling if user enters a value that is not of type integer or is negative
+            choice = validateChoice();
+        }
+        return choice;
+    }
+
+    private int validateChoice() {
+        int choice;
+        try {
+            choice = Integer.parseInt(scan.nextLine());
+            if (choice < 0) throw new NegativeArraySizeException();
+
+        } catch (InputMismatchException |NumberFormatException e) {
+            System.err.println("Please pick from the given range\n");
+            choice = 0;
+        } catch (NegativeArraySizeException e) {
+            System.err.println("Input can't be negative\n");
+            choice = 0;
         }
         return choice;
     }
