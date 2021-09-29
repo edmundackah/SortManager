@@ -20,7 +20,7 @@ public class DisplayManager {
             try {
                 choice = scan.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("Please pick from the given range\n");
+                System.err.println("Please pick from the given range\n");
                 choice = 0;
             }
         }
@@ -39,11 +39,11 @@ public class DisplayManager {
         return choice;
     }
 
-    public int setArraySize() {
+    public int getArraySize() {
         int choice = 0;
 
-        while (choice < 1 || choice > 1000) {
-            System.out.println("How many numbers in the array (1-1000)? ");
+        while (choice < 1 || choice > 100) {
+            System.out.println("How many numbers in the array (1-100)? ");
 
             //reset choice to zero if user enters an undesired input
             try {
@@ -59,7 +59,7 @@ public class DisplayManager {
     public void displayArray(String header, int[] array, boolean showTime) {
         System.out.println(header);
         long startTime = System.nanoTime();
-        System.out.println(Arrays.toString(array));
+        System.out.println("\t" + Arrays.toString(array));
         if (showTime) {
             System.out.println("Sorting took: " + (System.nanoTime() - startTime) + "ns");
         }
