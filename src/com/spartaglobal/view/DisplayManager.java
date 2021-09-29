@@ -7,14 +7,13 @@ import java.util.Scanner;
 
 public class DisplayManager {
     private Scanner scan = new Scanner(System.in);
-    private final ArrayList<Integer> options = new ArrayList(Arrays.asList(1, 2, 3));
+    private final ArrayList<Integer> options = new ArrayList(Arrays.asList(1, 2, 3, 4));
 
     public int selectAlgorithm() {
         int choice = 0;
-        boolean hasChosen = false;
 
         while (!options.contains(choice)) {
-            System.out.println("Pick a sorting algorithm: \n1. Bubble Sort \n2. Merge Sort \n3. Exit \n");
+            System.out.println("Pick a sorting algorithm: \n1. Bubble Sort \n2. Merge Sort \n3. Quick Sort \n4. Exit ");
 
             //error handing if user enters a value that is not of type integer
             try {
@@ -33,6 +32,9 @@ public class DisplayManager {
                 System.out.println("\nYou have selected Merge Sort\n");
                 break;
             case 3:
+                System.out.println("\nYou have selected Quick Sort\n");
+                break;
+            case 4:
                 System.out.println("Terminating session");
                 System.exit(0);
         }
