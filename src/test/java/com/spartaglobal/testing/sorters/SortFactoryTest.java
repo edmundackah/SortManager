@@ -17,7 +17,7 @@ public class SortFactoryTest {
     }
 
     @Test
-    public void GivenValueGreaterThanThree_ShouldReturnNull() {
+    public void GivenValueGreaterThanFour_ShouldReturnNull() {
         assertEquals(null, new SortFactory().getSortable(5));
     }
 
@@ -36,6 +36,12 @@ public class SortFactoryTest {
     @Test
     public void GivenThree_ShouldReturnTypeSortable() {
         Sortable testObject = new SortFactory().getSortable(3);
+        assertEquals(true, testObject instanceof Sortable);
+    }
+
+    @Test
+    public void GivenFour_ShouldReturnTypeSortable() {
+        Sortable testObject = new SortFactory().getSortable(4);
         assertEquals(true, testObject instanceof Sortable);
     }
 }
