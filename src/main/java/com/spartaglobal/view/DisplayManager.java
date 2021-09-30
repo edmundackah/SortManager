@@ -54,7 +54,7 @@ public class DisplayManager {
             choice = Integer.parseInt(scan.nextLine());
             if (choice < 0) throw new NegativeArraySizeException();
 
-        } catch (InputMismatchException |NumberFormatException e) {
+        } catch (InputMismatchException|NumberFormatException e) {
             System.err.println("Please pick from the given range\n");
             choice = 0;
         } catch (NegativeArraySizeException e) {
