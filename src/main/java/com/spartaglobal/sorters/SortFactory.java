@@ -10,6 +10,8 @@ public class SortFactory {
                 return new MergeSort();
             case 3:
                 return new QuickSort();
+            case 4:
+                return new TreeDriver();
             default:
                 return null;
         }

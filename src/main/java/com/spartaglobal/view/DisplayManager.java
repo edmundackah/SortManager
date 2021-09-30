@@ -7,13 +7,13 @@ import java.util.Scanner;
 
 public class DisplayManager {
     private Scanner scan = new Scanner(System.in);
-    private final ArrayList<Integer> options = new ArrayList(Arrays.asList(1, 2, 3, 4));
+    private final ArrayList<Integer> options = new ArrayList(Arrays.asList(1, 2, 3, 4, 5));
 
     public int selectAlgorithm() {
         int choice = 0;
 
         while (!options.contains(choice)) {
-            System.out.println("Pick a sorting algorithm: \n1. Bubble Sort \n2. Merge Sort \n3. Quick Sort \n4. Exit ");
+            System.out.println("Pick a sorting algorithm: \n1. Bubble Sort \n2. Merge Sort \n3. Quick Sort \n4. Binary Tree \n5. Exit ");
 
             //error handing if user enters a value that is not of type integer or is negative
             choice = validateChoice();
@@ -30,6 +30,9 @@ public class DisplayManager {
                 System.out.println("\nYou have selected Quick Sort\n");
                 break;
             case 4:
+                System.out.println("\nYou have selected Binary Tree\n");
+                break;
+            case 5:
                 System.out.println("Terminating session");
                 System.exit(0);
         }
