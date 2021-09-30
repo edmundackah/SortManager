@@ -1,13 +1,19 @@
 package com.spartaglobal.sorters;
 
+import org.apache.log4j.Logger;
+
 public class MergeSort implements Sortable {
+    private static Logger logger = Logger.getLogger("Sorting Application");
+
     @Override
     public int[] sort(int[] array) {
+        logger.debug("Attempting Merge Sort");
         if(array.length > 1)
         {
             int elementsInA1 = array.length / 2;
             int elementsInA2 = array.length - elementsInA1;
             // declare and initialize the two arrays once we've determined their sizes
+            logger.debug("Splitting array for Merge Sort");
             int[] arr1 = new int[elementsInA1];
             int[] arr2 = new int[elementsInA2];
             // copy the first part of 'array' into 'arr1', causing arr1 to become full
@@ -39,6 +45,8 @@ public class MergeSort implements Sortable {
                     k++;
                 }
             }
+
+            logger.debug("Comparing array elements for switch [Merge Sort]");
             while(arr1.length != j)
             {
                 array[i] = arr1[j];
@@ -52,6 +60,7 @@ public class MergeSort implements Sortable {
                 k++;
             }
         }
+        logger.debug("Returning sorted array [Merge Sort]");
         return array;
     }
 }

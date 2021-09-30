@@ -23,7 +23,4 @@ public class BubbleSortTest {
         Assertions.assertArrayEquals(bubbleSort.sort(testData),sortedArray);
     }
 
-    //TODO: Equal numbers
-    //TODO: Empty array
-
 }

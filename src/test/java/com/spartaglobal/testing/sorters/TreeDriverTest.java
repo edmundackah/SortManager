@@ -10,13 +10,13 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 
 public class TreeDriverTest {
-    private final int[] testData = {45, 7, 1,  0, 5, 1, 7, 3};
+    private final int[] testData = {45, 0, 5, 1, 7, 3};
 
     @Test
     public void sortArrayIntoOrder() {
         Sortable treeDriver = new TreeDriver();
 
-        int[] sortedArray = {45, 7, 1,  0, 5, 1, 7, 3};
+        int[] sortedArray = {45, 0, 5, 1, 7, 3};
         Arrays.sort(sortedArray);
 
         Assertions.assertArrayEquals(treeDriver.sort(testData), sortedArray);

@@ -1,8 +1,11 @@
 package com.spartaglobal.sorters;
 
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 
 public class BinaryTree {
+    private static Logger logger = Logger.getLogger("Sorting Application");
     private ArrayList<Integer> sortedArray = new ArrayList<>();
     private Node root;
 
@@ -23,6 +26,7 @@ public class BinaryTree {
 
     // This method mainly calls insertRec()
     public void insert(int data) {
+        logger.debug("Inserting a value into a node");
         root = insertRec(root, data);
     }
 
@@ -33,11 +37,14 @@ public class BinaryTree {
         /* If the tree is empty,
            return a new node */
         if (root == null) {
+            logger.debug("Creating a new node for the binary tree");
             root = new Node(data);
             return root;
         }
 
         /* Otherwise, recur down the tree */
+        logger.debug("Comparing node contents to determine optimal branch [Binary Tree]");
+
         if (data < root.data) {
             root.left = insertRec(root.left, data);
         } else if (data > root.data) {
@@ -56,6 +63,7 @@ public class BinaryTree {
     private void inorderRec(Node root) {
         if (root != null) {
             inorderRec(root.left);
+            logger.debug("Writing node value to ArrayList");
             sortedArray.add(root.data);
             inorderRec(root.right);
         }

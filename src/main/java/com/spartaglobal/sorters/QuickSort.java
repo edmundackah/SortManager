@@ -1,6 +1,9 @@
 package com.spartaglobal.sorters;
 
+import org.apache.log4j.Logger;
+
 public class QuickSort implements Sortable {
+    private static Logger logger = Logger.getLogger("Sorting Application");
     @Override
     public int[] sort(int[] arr) {
         int low = 0;
@@ -8,11 +11,14 @@ public class QuickSort implements Sortable {
 
         quickSort(arr, low, high);
 
+        logger.debug("Returning sorted array [Quick Sort]");
         return arr;
     }
 
     private void quickSort(int[] arr, int low, int high) {
         if (low < high) {
+            logger.debug("Performing Quick Sort");
+
             int splitIndex = split(arr, low, high);
 
             //recursive call left of pivot
@@ -25,6 +31,7 @@ public class QuickSort implements Sortable {
 
     //method to find point to split array
     private int split(int[] arr, int low, int high) {
+        logger.debug("Splitting array for Quick Sort");
         int pivot = arr[high];
         int i = low - 1;
 

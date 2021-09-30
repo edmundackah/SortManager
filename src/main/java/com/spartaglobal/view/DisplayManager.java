@@ -1,5 +1,7 @@
 package com.spartaglobal.view;
 
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -7,6 +9,7 @@ import java.util.Scanner;
 
 public class DisplayManager {
     private Scanner scan = new Scanner(System.in);
+    private static Logger logger = Logger.getLogger("Sorting Application");
     private final ArrayList<Integer> options = new ArrayList(Arrays.asList(1, 2, 3, 4, 5));
 
     public int selectAlgorithm() {
@@ -58,9 +61,11 @@ public class DisplayManager {
             if (choice < 0) throw new NegativeArraySizeException();
 
         } catch (InputMismatchException|NumberFormatException e) {
+            logger.warn("Please pick from the given range\n");
             System.err.println("Please pick from the given range\n");
             choice = 0;
         } catch (NegativeArraySizeException e) {
+            logger.error(e);
             System.err.println("Input can't be negative\n");
             choice = 0;
         }
@@ -69,6 +74,9 @@ public class DisplayManager {
 
     public void displayArray(String header, int[] array, boolean showTime) {
         System.out.println(header);
+        
+        logger.debug("Printing arrays to console");
+
         long startTime = System.nanoTime();
         System.out.println("\t" + Arrays.toString(array));
         if (showTime) {

@@ -1,6 +1,7 @@
 module com.spartaglobal {
     requires javafx.controls;
     requires javafx.fxml;
+    requires log4j;
 
 
     opens com.spartaglobal.controller to javafx.fxml;

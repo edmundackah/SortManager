@@ -1,8 +1,13 @@
 package com.spartaglobal.sorters;
 
+import org.apache.log4j.Logger;
+
 public class SortFactory {
+    private static Logger logger = Logger.getLogger("Sorting Application");
 
     public Sortable getSortable(int index) {
+        logger.debug("Instantiating sorting Object");
+
         switch (index) {
             case 1:
                 return new BubbleSort();
@@ -13,6 +18,7 @@ public class SortFactory {
             case 4:
                 return new TreeDriver();
             default:
+                logger.error("Unable to find required Sortable");
                 return null;
         }
     }
