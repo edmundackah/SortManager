@@ -12,7 +12,7 @@ public class App {
 
     public static void main(String[] args) {
         SortManager controller = new SortManager(new DisplayManager());
-        controller.getSortableFactory();
+        controller.selectAlgorithm();
         controller.sortArray();
     }
 }

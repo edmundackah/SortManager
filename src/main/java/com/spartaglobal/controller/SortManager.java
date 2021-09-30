@@ -1,9 +1,6 @@
 package com.spartaglobal.controller;
 
-import com.spartaglobal.sorters.BubbleSort;
-import com.spartaglobal.sorters.MergeSort;
-import com.spartaglobal.sorters.QuickSort;
-import com.spartaglobal.sorters.Sortable;
+import com.spartaglobal.sorters.*;
 import com.spartaglobal.view.DisplayManager;
 
 import java.util.Random;
@@ -16,20 +13,9 @@ public class SortManager {
         this.view = view;
     }
 
-    public void getSortableFactory() {
-        switch (view.selectAlgorithm()) {
-            case 1:
-                sort = new BubbleSort();
-                break;
-            case 2:
-                sort = new MergeSort();
-                break;
-            case 3:
-                sort = new QuickSort();
-                break;
-            default:
-                sort =  null;
-        }
+    public void selectAlgorithm() {
+        SortFactory sortFactory = new SortFactory();
+        sort = sortFactory.getSortable(view.selectAlgorithm());
     }
 
     public int[] sortArray() {
