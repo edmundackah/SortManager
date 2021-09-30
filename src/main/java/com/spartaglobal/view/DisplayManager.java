@@ -36,6 +36,7 @@ public class DisplayManager {
                 System.out.println("\nYou have selected Binary Tree\n");
                 break;
             case 5:
+                logger.debug("Terminating sorting session");
                 System.out.println("Terminating session");
                 System.exit(0);
         }
@@ -74,7 +75,7 @@ public class DisplayManager {
 
     public void displayArray(String header, int[] array, boolean showTime) {
         System.out.println(header);
-        
+
         logger.debug("Printing arrays to console");
 
         long startTime = System.nanoTime();
