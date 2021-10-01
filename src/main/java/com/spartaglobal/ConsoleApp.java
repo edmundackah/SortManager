@@ -5,7 +5,7 @@ import com.spartaglobal.view.DisplayManager;
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.Logger;
 
-public class App {
+public class ConsoleApp {
     private static Logger logger = Logger.getLogger("Sorting Application");
     public static void main(String[] args) throws Exception {
         PropertyConfigurator.configure("log4j.properties");
