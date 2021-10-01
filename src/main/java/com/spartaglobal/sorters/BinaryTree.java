@@ -57,6 +57,7 @@ public class BinaryTree {
     // This method mainly calls InorderRec()
     public int[] inorder() {
         inorderRec(root);
+        //converts arraylist to int[]
         return sortedArray.stream().mapToInt(i -> i).toArray();
     }
 
@@ -64,6 +65,7 @@ public class BinaryTree {
         if (root != null) {
             inorderRec(root.left);
             logger.debug("Writing node value to ArrayList");
+            //arraylist for storing the output before printing
             sortedArray.add(root.data);
             inorderRec(root.right);
         }
