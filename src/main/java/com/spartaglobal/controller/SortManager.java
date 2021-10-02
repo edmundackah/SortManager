@@ -11,7 +11,10 @@ import java.util.concurrent.ThreadLocalRandom;
 public class SortManager {
     private final DisplayManager view;
     private Sortable sort;
-    private static Logger logger = Logger.getLogger("Sorting Application");
+
+    private static String className = SortManager.class.getCanonicalName();
+    private static Logger logger = Logger.getLogger(className);
+
     private int algoChoice, arraySize;
 
     public void setAlgoChoice(int algoChoice) {

@@ -36,7 +36,15 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <ListView layoutX="14.0" layoutY="15.0" prefHeight="426.0" prefWidth="938.0" />
+                        <TableView fx:id="logTable" layoutX="14.0" layoutY="14.0" prefHeight="430.0" prefWidth="937.0">
+                          <columns>
+                            <TableColumn fx:id="levelCol" prefWidth="79.19997882843018" text="Level" />
+                            <TableColumn fx:id="timeStampCol" prefWidth="186.40003967285156" text="Timestamp" />
+                              <TableColumn fx:id="packageCol" minWidth="0.0" prefWidth="234.39996337890625" text="Package" />
+                              <TableColumn fx:id="methodCol" prefWidth="145.5999755859375" text="Method" />
+                              <TableColumn fx:id="logCol" prefWidth="292.0" text="log" />
+                          </columns>
+                        </TableView>
                      </children>
                   </AnchorPane>
             </content>

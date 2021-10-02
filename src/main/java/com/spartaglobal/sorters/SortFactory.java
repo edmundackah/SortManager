@@ -1,9 +1,11 @@
 package com.spartaglobal.sorters;
 
+import com.spartaglobal.controller.SortManager;
 import org.apache.log4j.Logger;
 
 public class SortFactory {
-    private static Logger logger = Logger.getLogger("Sorting Application");
+    private static String className = SortFactory.class.getCanonicalName();
+    private static Logger logger = Logger.getLogger(className);
 
     public Sortable getSortable(int index) {
         logger.debug("Instantiating sorting Object");

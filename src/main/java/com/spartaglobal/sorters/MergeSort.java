@@ -1,9 +1,11 @@
 package com.spartaglobal.sorters;
 
+import com.spartaglobal.controller.SortManager;
 import org.apache.log4j.Logger;
 
 public class MergeSort implements Sortable {
-    private static Logger logger = Logger.getLogger("Sorting Application");
+    private static String className = MergeSort.class.getCanonicalName();
+    private static Logger logger = Logger.getLogger(className);
 
     @Override
     public int[] sort(int[] array) {

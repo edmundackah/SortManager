@@ -1,5 +1,6 @@
 package com.spartaglobal.view;
 
+import com.spartaglobal.controller.SortManager;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
@@ -9,7 +10,8 @@ import java.util.Scanner;
 
 public class DisplayManager {
     private Scanner scan = new Scanner(System.in);
-    private static Logger logger = Logger.getLogger("Sorting Application");
+    private static String className = DisplayManager.class.getCanonicalName();
+    private static Logger logger = Logger.getLogger(className);
     private final ArrayList<Integer> options = new ArrayList(Arrays.asList(1, 2, 3, 4, 5));
 
     public int selectAlgorithm() {

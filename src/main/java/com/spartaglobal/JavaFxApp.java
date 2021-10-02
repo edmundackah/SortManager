@@ -1,5 +1,6 @@
 package com.spartaglobal;
 
+import com.spartaglobal.controller.SortManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +12,8 @@ import org.apache.log4j.PropertyConfigurator;
 import java.io.IOException;
 
 public class JavaFxApp extends Application {
-    private static Logger logger = Logger.getLogger("Sorting Application");
+    private static String className = JavaFxApp.class.getCanonicalName();
+    private static Logger logger = Logger.getLogger(className);
 
     @Override
     public void start(Stage stage) throws IOException {

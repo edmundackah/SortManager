@@ -6,7 +6,8 @@ import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.Logger;
 
 public class ConsoleApp {
-    private static Logger logger = Logger.getLogger("Sorting Application");
+    private static String className = ConsoleApp.class.getCanonicalName();
+    private static Logger logger = Logger.getLogger(className);
     public static void main(String[] args) throws Exception {
         PropertyConfigurator.configure("log4j.properties");
 

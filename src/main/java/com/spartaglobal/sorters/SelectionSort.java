@@ -1,8 +1,16 @@
 package com.spartaglobal.sorters;
 
+import com.spartaglobal.controller.SortManager;
+import org.apache.log4j.Logger;
+
 public class SelectionSort implements Sortable {
+    private static String className = SelectionSort.class.getCanonicalName();
+    private static Logger logger = Logger.getLogger(className);
+
     @Override
     public int[] sort(int[] arr) {
+        logger.debug("Running selection sort");
+
         int n = arr.length;
 
         // One by one move boundary of unsorted subarray
@@ -20,6 +28,8 @@ public class SelectionSort implements Sortable {
             arr[min_idx] = arr[i];
             arr[i] = temp;
         }
+
+        logger.debug("returning sorted array");
         return arr;
     }
 }

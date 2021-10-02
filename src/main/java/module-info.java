@@ -8,6 +8,10 @@ module com.spartaglobal {
 
     opens com.spartaglobal.controller to javafx.fxml;
     exports com.spartaglobal.controller;
+
+    exports com.spartaglobal.util;
+    opens com.spartaglobal.util to javafx.fxml;
+
     exports com.spartaglobal.view;
     opens com.spartaglobal.view to javafx.fxml;
 }

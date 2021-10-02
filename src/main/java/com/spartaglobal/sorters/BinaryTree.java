@@ -1,11 +1,14 @@
 package com.spartaglobal.sorters;
 
+import com.spartaglobal.controller.SortManager;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 
 public class BinaryTree {
-    private static Logger logger = Logger.getLogger("Sorting Application");
+    private static String className = BinaryTree.class.getCanonicalName();
+    private static Logger logger = Logger.getLogger(className);
+
     private ArrayList<Integer> sortedArray = new ArrayList<>();
     private Node root;
 
@@ -43,7 +46,7 @@ public class BinaryTree {
         }
 
         /* Otherwise, recur down the tree */
-        logger.debug("Comparing node contents to determine optimal branch [Binary Tree]");
+        logger.debug("Comparing node contents to determine optimal branch");
 
         if (data < root.data) {
             root.left = insertRec(root.left, data);

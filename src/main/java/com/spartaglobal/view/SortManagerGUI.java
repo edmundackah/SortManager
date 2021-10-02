@@ -2,6 +2,7 @@ package com.spartaglobal.view;
 
 import com.spartaglobal.sorters.SortFactory;
 import com.spartaglobal.sorters.Sortable;
+import com.spartaglobal.util.LogReader;
 import javafx.application.Application;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -36,10 +37,13 @@ public class SortManagerGUI implements Initializable {
     Tab logTab;
 
     @FXML
-    TableColumn timeCol, algoCol, sortedCol;
+    TableColumn timeCol, algoCol, sortedCol, levelCol, timeStampCol, packageCol, methodCol, logCol;
 
     @FXML
     TableView<SortResults> resultTable;
+
+    @FXML
+    TableView<LogReader.LogEntry> logTable;
 
     @FXML
     Slider rangeSlider;
@@ -71,15 +75,22 @@ public class SortManagerGUI implements Initializable {
         //enable multi selection on listview
         choiceLST.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
-        //setting column properties
+        //setting result table column properties
         timeCol.setCellValueFactory(new PropertyValueFactory<>("time"));
         algoCol.setCellValueFactory(new PropertyValueFactory<>("algorithm"));
         sortedCol.setCellValueFactory(new PropertyValueFactory<>("sortedArr"));
 
+        //setting logging table column properties
+        timeStampCol.setCellValueFactory(new PropertyValueFactory<>("timeStampCol"));
+        logCol.setCellValueFactory(new PropertyValueFactory<>("logCol"));
+        packageCol.setCellValueFactory(new PropertyValueFactory<>("packageCol"));
+        levelCol.setCellValueFactory(new PropertyValueFactory<>("levelCol"));
+        methodCol.setCellValueFactory(new PropertyValueFactory<>("methodCol"));
+
         //checks to see if the log tab is the active tab and loads the logs
         systemTab.getSelectionModel().selectedItemProperty().addListener((observable, oldTab, newTab) -> {
             if(newTab.equals (logTab)) {
-                System.out.print("Log tab is selected");
+                showSystemLogs();
             }
         });
 
@@ -88,7 +99,12 @@ public class SortManagerGUI implements Initializable {
     }
 
     private void showSystemLogs() {
+        //clear existing logs from ui
+        logTable.getItems().clear();
 
+        //populating table with logs
+        logTable.setItems(new LogReader().getSystemLogs());
+        logTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
     @FXML
