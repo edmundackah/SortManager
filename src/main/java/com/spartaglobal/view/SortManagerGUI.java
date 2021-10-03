@@ -1,5 +1,7 @@
 package com.spartaglobal.view;
 
+import com.spartaglobal.controller.GUIManager;
+import com.spartaglobal.controller.SortManager;
 import com.spartaglobal.sorters.SortFactory;
 import com.spartaglobal.sorters.Sortable;
 import com.spartaglobal.util.LogReader;
@@ -28,6 +30,8 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 public class SortManagerGUI implements Initializable {
+    private GUIManager guiManager;
+
     private final String[] options = {"BubbleSort", "QuickSort", "MergeSort", "BinaryTree",
             "InsertionSort", "SelectionSort", "CollectionSort", "ArraySort", "ParallelSort"};
 
@@ -53,11 +57,6 @@ public class SortManagerGUI implements Initializable {
 
     @FXML
     ListView choiceLST;
-
-    @FXML
-    public void logTabSelectEvent() {
-
-    }
 
     private void showDialog(String message) {
         Dialog<String> dialog = new Dialog<String>();
@@ -103,7 +102,7 @@ public class SortManagerGUI implements Initializable {
         logTable.getItems().clear();
 
         //populating table with logs
-        logTable.setItems(new LogReader().getSystemLogs());
+        logTable.setItems(LogReader.getInstance().getSystemLogs());
         logTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 

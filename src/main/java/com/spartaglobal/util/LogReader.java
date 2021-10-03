@@ -14,7 +14,9 @@ public class LogReader {
     private static String className = LogReader.class.getCanonicalName();
     private static Logger logger = Logger.getLogger(className);
 
-    public class LogEntry {
+    private static LogReader instance = null;
+
+    public static class LogEntry {
         public SimpleStringProperty levelCol, timeStampCol, logCol;
         public SimpleStringProperty packageCol, methodCol;
 
@@ -47,7 +49,15 @@ public class LogReader {
         }
     }
 
-    public ObservableList<LogEntry> getSystemLogs() {
+    private LogReader() {
+
+    }
+
+    public static LogReader getInstance() {
+        return instance == null ? new LogReader() : instance;
+    }
+
+    public static ObservableList<LogEntry> getSystemLogs() {
         ObservableList<LogEntry> logs = FXCollections.observableArrayList();
         Scanner linReader = null;
 
