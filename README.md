@@ -89,7 +89,7 @@ Passed all test cases
 
 To run the application the repository can be downloaded from GitHub as a zip file or using a Git command. The code can then be imported into IntelliJ as a new project.
 
-Running the `ConsoleApp` class will produce the terminal sorting program and `JavaFxApp` will produce the GUI. Alternatively if you are only interested in the GUI it accessed as a .jar file from the release section of this repository.
+Running the `ConsoleApp` class will produce the terminal sorting program and `JavaFxApp` will produce the GUI.
 
 ## 5. Acknowledgements <a name="Acknowledgements"></a>
 
