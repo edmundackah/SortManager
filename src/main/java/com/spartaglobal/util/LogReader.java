@@ -68,7 +68,6 @@ public class LogReader {
 
             while (linReader.hasNext()) {
                 String[] line = linReader.nextLine().split(" ");
-                //System.out.println(line[0].split(" "));
 
                 String timeStamp = line[1] + " " + line[2];
 
